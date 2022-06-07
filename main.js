@@ -54,33 +54,31 @@
 
 
 //EJERCICIO 2
-//const express = require('express')
-//
-//const app = express()
-//const puerto=8080
-//let visitas=0
-//
-//app.use((req, res, next) =>{
-//    visitas++
-//    next()
-//})
-//
-//app.get('/', (req, resp) =>{
-//    resp.status(200).send('<h1 style="color: blue">Bienvenidos al servido express</h1>')
-//})
-//
-//
-//app.get('/visitas', (req, resp) =>{
-//    resp.send(`El servidor tuvo ${visitas} visitas`)
-//})
-//
-//app.get('/fyh', (req, resp) =>{
-//    let fyh = {fyh: new Date()};
-//    resp.send(fyh)
-//})
-//
-//app.listen(puerto, () =>{
-//    console.log(`Servidor escuchando puerto ${puerto}`)
-//})
+const express = require('express')
+
+const app = express()
+const puerto=8080
+let visitas=0
+
+app.use((req, res, next) =>{
+    visitas++
+    next()
+})
+
+app.get('/', (req, resp) =>{
+    resp.status(200).send('<h1 style="color: blue">Bienvenidos al servido express</h1>')
+})
 
 
+app.get('/visitas', (req, resp) =>{
+    resp.send(`El servidor tuvo ${visitas} visitas`)
+})
+
+app.get('/fyh', (req, resp) =>{
+    let fyh = {fyh: new Date()};
+    resp.send(fyh)
+})
+
+app.listen(puerto, () =>{
+    console.log(`Servidor escuchando puerto ${puerto}`)
+})
